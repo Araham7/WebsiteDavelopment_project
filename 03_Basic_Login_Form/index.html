@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        #message {
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Login Form</h2>
+    <form id="loginForm">
+        <label for="email">Email:</label>
+        <input type="text" id="email" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="message"></p>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const messageElement = document.getElementById('message');
+    
+            // Reset message
+            messageElement.textContent = '';
+    
+            // Validate email and password
+            if (!email.includes('@') || password.length < 8) {
+                messageElement.textContent = 'Invalid email or password!';
+                messageElement.style.color = 'red';
+            } else {
+                messageElement.textContent = 'Valid email and password!';
+                messageElement.style.color = 'green';
+            }
+        });
+    </script>
+</body>
+</html>
